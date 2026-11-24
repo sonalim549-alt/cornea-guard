@@ -49,12 +49,10 @@ Evaluates any pasted URL purely via static lexical and structural inspection **w
 ```text
 .
 ├── app.py                      # Flask application factory, API routes, security middleware & error handlers
-├── api/
-│   └── index.py                # Vercel serverless WSGI entrypoint
 ├── streamlit_app.py            # Streamlit Community Cloud dashboard (shared core/ engine)
 ├── .streamlit/
 │   └── config.toml             # Dark cybersecurity theme configuration for Streamlit
-├── vercel.json                 # Vercel rewrite configuration routing traffic to Flask WSGI
+├── vercel.json                 # Vercel Python function packaging configuration for root app.py
 ├── core/
 │   ├── __init__.py             # Package exports
 │   ├── url_analyzer.py         # Static lexical & structural phishing heuristics (pre-compiled regexes)
@@ -78,7 +76,7 @@ Evaluates any pasted URL purely via static lexical and structural inspection **w
 
 ### Deploy on Vercel (Flask Web App)
 1. Go to [vercel.com/new](https://vercel.com/new) and import `sonalim549-alt/cornea-guard`.
-2. Keep the default settings — `vercel.json` and `api/index.py` automatically configure the Flask WSGI runtime.
+2. Keep the default **Flask** framework preset — Vercel automatically runs root `app.py` (`vercel.json` excludes tests and Streamlit files).
 3. Click **Deploy**.
 
 ### Deploy on Streamlit Community Cloud
